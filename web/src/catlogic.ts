@@ -24,9 +24,10 @@ export const TREES: Record<Tree, TreeInfo> = {
 
 export const MAX_LEVEL = 5;
 
-/** coin cost of the NEXT level for a tree at `level` */
+/** coin cost of the NEXT level for a tree at `level` — starts at 1 coin and
+ *  DOUBLES each time (the creator asked for exactly this curve). */
 export function treeCost(level: number): number {
-  return [5, 12, 25, 45, 80][level] ?? Infinity;
+  return [1, 2, 4, 8, 16][level] ?? Infinity;
 }
 
 export interface CatState {
